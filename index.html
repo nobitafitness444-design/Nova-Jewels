@@ -60,7 +60,12 @@
         .badge-tag { position: absolute; top: 15px; left: 15px; background: rgba(15, 17, 19, 0.8); border: 1px solid var(--gold-primary); color: var(--gold-light); padding: 4px 10px; font-size: 0.75rem; border-radius: 20px; z-index: 2; }
         
         .product-details { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
-        .product-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem; font-family: 'Cinzel', serif; color: var(--text-main); }
+        .product-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; font-family: 'Cinzel', serif; color: var(--text-main); }
+        
+        .price-delivery-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+        .product-price { font-size: 1.2rem; font-weight: 700; color: var(--gold-light); font-family: 'Cinzel', serif; }
+        .free-delivery-badge { font-size: 0.75rem; color: #2ecc71; background: rgba(46, 204, 113, 0.1); padding: 3px 8px; border-radius: 4px; font-weight: 600; border: 1px solid rgba(46, 204, 113, 0.3); }
+
         .product-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem; }
         .product-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem; }
         .feature-tag { font-size: 0.75rem; color: var(--gold-primary); background: rgba(212, 175, 55, 0.08); padding: 4px 8px; border-radius: 4px; }
@@ -73,7 +78,8 @@
         .modal-content { background: var(--bg-card); border: 1px solid var(--gold-primary); border-radius: 20px; max-width: 500px; width: 90%; padding: 2.5rem; position: relative; }
         .modal-close { position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
         .modal-close:hover { color: var(--gold-primary); }
-        .modal-title { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold-light); margin-bottom: 1rem; }
+        .modal-title { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+        .modal-price { font-size: 1.3rem; font-weight: 700; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Cinzel', serif; }
         .modal-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
         .modal-buy-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--whatsapp-green); color: white; padding: 0.9rem; border-radius: 30px; text-decoration: none; font-weight: 700; width: 100%; }
 
@@ -93,7 +99,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-area">
-                <img src="images/logo.png.jpg" alt="Nova Jewels" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=100'">
+                <img src="images/logo.png" alt="Nova Jewels" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=100'">
                 <span class="logo-text">NOVA JEWELS</span>
             </a>
             <ul class="nav-links">
@@ -125,181 +131,229 @@
         <div class="products-grid">
 
             <!-- 1 -->
-            <div class="product-card" onclick="openModal('Golden Bow Accent Stainless Steel Bracelet', 'Elegant gold-tone beaded chain bracelet featuring a cute little bow accent. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Bestseller</span><img src="images/p1.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1611591475281-22444c452425?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Bow Accent Stainless Steel Bracelet', 'Rs. 1,499', 'Elegant gold-tone beaded chain bracelet featuring a cute little bow accent. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Bestseller</span><img src="images/p1.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1611591475281-22444c452425?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Bow Accent Stainless Steel Bracelet</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,499</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Elegant gold-tone beaded chain bracelet featuring a cute little bow accent. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Bow%20Accent%20Stainless%20Steel%20Bracelet" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Bow%20Accent%20Stainless%20Steel%20Bracelet%20-%20Rs.%201,499" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 2 -->
-            <div class="product-card" onclick="openModal('Golden Bow Accent Stainless Steel Necklace', 'Premium ribbon/bow pendant stainless steel necklace with a sleek gold finish. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Trending</span><img src="images/p2.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Bow Accent Stainless Steel Necklace', 'Rs. 1,699', 'Premium ribbon/bow pendant stainless steel necklace with a sleek gold finish. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Trending</span><img src="images/p2.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Bow Accent Stainless Steel Necklace</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,699</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Premium ribbon/bow pendant stainless steel necklace with a sleek gold finish. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Bow%20Accent%20Stainless%20Steel%20Necklace" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Bow%20Accent%20Stainless%20Steel%20Necklace%20-%20Rs.%201,699" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 3 -->
-            <div class="product-card" onclick="openModal('Floral Beaded Bracelet Set', 'Vibrant and colorful beaded flower/crystal style bracelet set, perfect for a trendy, aesthetic look. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Aesthetic</span><img src="images/p3.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400'"></div>
+            <div class="product-card" onclick="openModal('Floral Beaded Bracelet Set', 'Rs. 1,399', 'Vibrant and colorful beaded flower/crystal style bracelet set, perfect for a trendy, aesthetic look. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Aesthetic</span><img src="images/p3.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Floral Beaded Bracelet Set</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,399</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Vibrant and colorful beaded flower/crystal style bracelet set, perfect for a trendy, aesthetic look. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Floral%20Beaded%20Bracelet%20Set" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Floral%20Beaded%20Bracelet%20Set%20-%20Rs.%201,399" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 4 -->
-            <div class="product-card" onclick="openModal('Golden Heart Pendant Stainless Steel Bracelet', 'Charming double-heart interlocking chain bracelet in a polished gold stainless steel finish. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Exclusive</span><img src="images/p4.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Heart Pendant Stainless Steel Bracelet', 'Rs. 1,499', 'Charming double-heart interlocking chain bracelet in a polished gold stainless steel finish. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Exclusive</span><img src="images/p4.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Heart Pendant Stainless Steel Bracelet</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,499</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Charming double-heart interlocking chain bracelet in a polished gold stainless steel finish. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Heart%20Pendant%20Stainless%20Steel%20Bracelet" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Heart%20Pendant%20Stainless%20Steel%20Bracelet%20-%20Rs.%201,499" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 5 -->
-            <div class="product-card" onclick="openModal('Golden Green Gemstone Vine Bracelet', 'Elegant Tulip bracelet featuring emerald-style green stone leaf-vine designs set in gold. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">New</span><img src="images/p5.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Green Gemstone Vine Bracelet', 'Rs. 1,599', 'Elegant Tulip bracelet featuring emerald-style green stone leaf-vine designs set in gold. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">New</span><img src="images/p5.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Green Gemstone Vine Bracelet</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,599</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Elegant Tulip bracelet featuring emerald-style green stone leaf-vine designs set in gold. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Green%20Gemstone%20Vine%20Bracelet" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Green%20Gemstone%20Vine%20Bracelet%20-%20Rs.%201,599" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 6 -->
-            <div class="product-card" onclick="openModal('Golden Beaded Snake Chain Bracelet', 'Layered/snake chain wave bracelet embellished with tiny gold beads for a classy wrist look. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Classic</span><img src="images/p6.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1598560917505-59a35585d6c6?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Beaded Snake Chain Bracelet', 'Rs. 1,399', 'Layered/snake chain wave bracelet embellished with tiny gold beads for a classy wrist look. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Classic</span><img src="images/p6.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1598560917505-59a35585d6c6?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Beaded Snake Chain Bracelet</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,399</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Layered/snake chain wave bracelet embellished with tiny gold beads for a classy wrist look. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Beaded%20Snake%20Chain%20Bracelet" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Beaded%20Snake%20Chain%20Bracelet%20-%20Rs.%201,399" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 7 -->
-            <div class="product-card" onclick="openModal('Golden Ring & Spike Pendant Necklace', 'You Are My Only Love Eiffel Tower branded circular ring pendant necklace with unique spike detailing. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Signature</span><img src="images/p7.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Ring & Spike Pendant Necklace', 'Rs. 1,699', 'You Are My Only Love Eiffel Tower branded circular ring pendant necklace with unique spike detailing. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Signature</span><img src="images/p7.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Ring & Spike Pendant Necklace</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,699</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">You Are My Only Love Eiffel Tower branded circular ring pendant necklace with unique spike detailing. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Ring%20&%20Spike%20Pendant%20Necklace" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Ring%20&%20Spike%20Pendant%20Necklace%20-%20Rs.%201,699" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 8 -->
-            <div class="product-card" onclick="openModal('Golden Black Clover 4-Piece Jewelry Set', 'Complete luxury black clover (Van Cleef style) set including a necklace, stud earrings, and a matching ring. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Luxury Set</span><img src="images/p8.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1539185441755-769473a23570?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden Black Clover 4-Piece Jewelry Set', 'Rs. 2,499', 'Complete luxury black clover (Van Cleef style) set including a necklace, stud earrings, and a matching ring. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Luxury Set</span><img src="images/p8.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1539185441755-769473a23570?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden Black Clover 4-Piece Jewelry Set</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 2,499</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Complete luxury black clover (Van Cleef style) set including a necklace, stud earrings, and a matching ring. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Black%20Clover%204-Piece%20Jewelry%20Set" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20Black%20Clover%204-Piece%20Jewelry%20Set%20-%20Rs.%202,499" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 9 -->
-            <div class="product-card" onclick="openModal('Golden White Clover 4-Piece Jewelry Set', 'Stunning white mother-of-pearl clover complete jewelry set featuring a necklace, earrings, and a ring. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Luxury Set</span><img src="images/p9.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400'"></div>
+            <div class="product-card" onclick="openModal('Golden White Clover 4-Piece Jewelry Set', 'Rs. 2,499', 'Stunning white mother-of-pearl clover complete jewelry set featuring a necklace, earrings, and a ring. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Luxury Set</span><img src="images/p9.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Golden White Clover 4-Piece Jewelry Set</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 2,499</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Stunning white mother-of-pearl clover complete jewelry set featuring a necklace, earrings, and a ring. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20White%20Clover%204-Piece%20Jewelry%20Set" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Golden%20White%20Clover%204-Piece%20Jewelry%20Set%20-%20Rs.%202,499" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 10 -->
-            <div class="product-card" onclick="openModal('Men\'s Black Stone Minimalist 3-Piece Combo Set', 'Bold men\'s combo set featuring a black rectangular stone matching ring and an open cuff bracelet. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Men\'s Edit</span><img src="images/p10.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1622398925373-3f91b17f8b54?w=400'"></div>
+            <div class="product-card" onclick="openModal('Men\'s Black Stone Minimalist 3-Piece Combo Set', 'Rs. 1,999', 'Bold men\'s combo set featuring a black rectangular stone matching ring and an open cuff bracelet. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Men\'s Edit</span><img src="images/p10.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1622398925373-3f91b17f8b54?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Men's Black Stone Minimalist 3-Piece Combo Set</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,999</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Bold men's combo set featuring a black rectangular stone matching ring and an open cuff bracelet. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Mens%20Black%20Stone%20Minimalist%203-Piece%20Combo%20Set" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Mens%20Black%20Stone%20Minimalist%203-Piece%20Combo%20Set%20-%20Rs.%201,999" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 11 -->
-            <div class="product-card" onclick="openModal('Men\'s Golden & Silver Fashion Jewelry Chain Set', 'Sleek silver and golden stainless steel (H-M brand style) chain and bracelet set for a modern edge. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Men\'s Edit</span><img src="images/p11.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1509319117193-57deb727e792?w=400'"></div>
+            <div class="product-card" onclick="openModal('Men\'s Golden & Silver Fashion Jewelry Chain Set', 'Rs. 1,899', 'Sleek silver and golden stainless steel (H-M brand style) chain and bracelet set for a modern edge. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Men\'s Edit</span><img src="images/p11.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1509319117193-57deb727e792?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Men's Golden & Silver Fashion Jewelry Chain Set</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,899</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Sleek silver and golden stainless steel (H-M brand style) chain and bracelet set for a modern edge. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Mens%20Golden%20and%20Silver%20Fashion%20Jewelry%20Chain%20Set" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Mens%20Golden%20and%20Silver%20Fashion%20Jewelry%20Chain%20Set%20-%20Rs.%201,899" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
 
             <!-- 12 -->
-            <div class="product-card" onclick="openModal('Black Stone Pendant Necklace', 'Classic black rectangular stone pendant paired with a matching snake chain for a clean, minimalist style. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
-                <div class="product-img-box"><span class="badge-tag">Minimalist</span><img src="images/p12.jpg.HEIC" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400'"></div>
+            <div class="product-card" onclick="openModal('Black Stone Pendant Necklace', 'Rs. 1,499', 'Classic black rectangular stone pendant paired with a matching snake chain for a clean, minimalist style. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+                <div class="product-img-box"><span class="badge-tag">Minimalist</span><img src="images/p12.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400'"></div>
                 <div class="product-details">
                     <div>
                         <h3 class="product-title">Black Stone Pendant Necklace</h3>
+                        <div class="price-delivery-row">
+                            <span class="product-price">Rs. 1,499</span>
+                            <span class="free-delivery-badge">Free Delivery</span>
+                        </div>
                         <p class="product-desc">Classic black rectangular stone pendant paired with a matching snake chain for a clean, minimalist style. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Black%20Stone%20Pendant%20Necklace" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Black%20Stone%20Pendant%20Necklace%20-%20Rs.%201,499" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
@@ -312,6 +366,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             <h3 class="modal-title" id="modalTitle">Product Title</h3>
+            <div class="modal-price" id="modalPrice">Rs. 0</div>
             <p class="modal-desc" id="modalDesc">Description...</p>
             <a href="#" id="modalWhatsappBtn" target="_blank" class="modal-buy-btn">
                 <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Buy Now on WhatsApp
@@ -330,10 +385,11 @@
     </footer>
 
     <script>
-        function openModal(title, desc) {
+        function openModal(title, price, desc) {
             document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = price;
             document.getElementById('modalDesc').innerText = desc;
-            const encoded = encodeURIComponent("Hello Nova Jewels, I want to order this product:\n\n*" + title + "*\n" + desc);
+            const encoded = encodeURIComponent("Hello Nova Jewels, I want to order this product:\n\n*" + title + "*\nPrice: " + price + "\n" + desc);
             document.getElementById('modalWhatsappBtn').href = "https://wa.me/923341557415?text=" + encoded;
             document.getElementById('productModal').classList.add('active');
         }
