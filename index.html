@@ -23,8 +23,11 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; scroll-behavior: smooth; position: relative; }
         h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+        /* Snow Overlay Canvas */
+        #snowCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
 
         /* Header */
         header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(15, 17, 19, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
@@ -38,12 +41,19 @@
         .whatsapp-nav-btn { background: var(--whatsapp-green); color: white; padding: 0.6rem 1.2rem; border-radius: 30px; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: var(--transition); }
         .whatsapp-nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
 
-        /* Hero */
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #1a1e23 0%, var(--bg-dark) 70%); padding: 0 1rem; }
+        /* Hero & Color Wheel Section */
+        .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #1a1e23 0%, var(--bg-dark) 70%); padding: 0 1rem; position: relative; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, #ffffff 30%, var(--gold-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; letter-spacing: 1.5px; }
         .btn-gold { display: inline-block; background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark)); color: var(--bg-dark); padding: 0.9rem 2.5rem; border-radius: 30px; text-decoration: none; font-weight: 700; letter-spacing: 1.5px; transition: var(--transition); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); }
         .btn-gold:hover { transform: translateY(-3px); }
+
+        /* Theme Picker Wheel Box */
+        .theme-picker-container { margin-top: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 10px; background: rgba(22, 25, 28, 0.8); border: 1px solid rgba(212, 175, 55, 0.25); padding: 10px 20px; border-radius: 30px; backdrop-filter: blur(8px); }
+        .theme-title { font-size: 0.75rem; letter-spacing: 2px; color: var(--gold-light); text-transform: uppercase; font-weight: 600; }
+        .color-options { display: flex; gap: 12px; align-items: center; }
+        .color-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid #ffffff33; transition: var(--transition); }
+        .color-dot:hover { transform: scale(1.25); border-color: #fff; }
 
         /* Catalog */
         .catalog-section { max-width: 1300px; margin: 0 auto; padding: 8rem 2rem 5rem 2rem; }
@@ -99,6 +109,9 @@
 </head>
 <body>
 
+    <!-- Snow Overlay Canvas -->
+    <canvas id="snowCanvas"></canvas>
+
     <!-- Header -->
     <header>
         <div class="nav-container">
@@ -122,6 +135,18 @@
             <h1>NOVA JEWELS</h1>
             <p>ELEVATE YOUR STYLE WITH WATERPROOF & ANTI-TARNISH STAINLESS STEEL LUXURY</p>
             <a href="#catalog" class="btn-gold">EXPLORE COLLECTION</a>
+
+            <!-- Color Wheel Theme Selector -->
+            <div class="theme-picker-container">
+                <span class="theme-title"><i class="fa-solid fa-palette"></i> Select Theme Vibe</span>
+                <div class="color-options">
+                    <div class="color-dot" style="background: linear-gradient(135deg, #f3e5ab, #d4af37);" title="Gold Luxury" onclick="setTheme('#d4af37', '#f3e5ab', '#aa8c2c')"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #a8ff78, #78ffd6);" title="Emerald Glow" onclick="setTheme('#2ecc71', '#a8ff78', '#27ae60')"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);" title="Rose Gold" onclick="setTheme('#e84393', '#ff9a9e', '#d63031')"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #4facfe, #00f2fe);" title="Sapphire Blue" onclick="setTheme('#0984e3', '#74b9ff', '#0984e3')"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #f093fb, #f5576c);" title="Crimson Ruby" onclick="setTheme('#ff7675', '#fd79a8', '#d63031')"></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -179,7 +204,7 @@
             </div>
 
             <!-- 3 -->
-            <div class="product-card" onclick="openModal('Floral Beaded Bracelet Set', 'Rs. 299', 'Rs. 500', 'Vibrant and colorful beaded flower/crystal style bracelet set. Single Piece Price: Rs. 299 | Full Pack (12 Pieces) Price: Rs. 1,399. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.')">
+            <div class="product-card" onclick="openModal('Floral Beaded Bracelet Set', 'Rs. 299', 'Rs. 500', 'Vibrant beaded flower/crystal style bracelet set. NOTE: Single Piece purchase requires MINIMUM 2 PIECES order (Rs. 299 each). Full Pack (12 Pieces) available for Rs. 1,399.')">
                 <div class="product-img-box"><span class="badge-tag">Aesthetic</span><img src="p3.jpg" alt="Product" onerror="this.src='https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400'"></div>
                 <div class="product-details">
                     <div>
@@ -191,11 +216,11 @@
                             </div>
                             <span class="free-delivery-badge">Free Delivery</span>
                         </div>
-                        <p class="product-desc">Single Piece Price: Rs. 299 | Full Pack (12 Pieces) Price: Rs. 1,399. Anti Tarnish Stainless Steel, Waterproof, and Best for Daily Wear.</p>
+                        <p class="product-desc">Vibrant beaded flower bracelet set. <strong>Note:</strong> Minimum order 2 pieces if buying single pieces (Rs. 299 each). Full Pack (12 Pcs): Rs. 1,399.</p>
                     </div>
                     <div class="product-footer">
                         <span class="feature-tag"><i class="fa-solid fa-shield-halved"></i> Waterproof</span>
-                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Floral%20Beaded%20Bracelet%20Set%20-%20Rs.%20299%20(Full%20Pack%2012%20Pcs:%20Rs.%201,399)" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
+                        <a href="https://wa.me/923341557415?text=Hello%20Nova%20Jewels,%20I%20want%20to%20order:%20Floral%20Beaded%20Bracelet%20Set%20-%20Rs.%20299%20per%20pc%20(Min%20Order:%202%20Pcs%20OR%20Full%20Pack%2012%20Pcs:%20Rs.%201,399)" target="_blank" class="whatsapp-order-btn" onclick="event.stopPropagation();"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                     </div>
                 </div>
             </div>
@@ -428,6 +453,7 @@
     </footer>
 
     <script>
+        // Modal Logic
         function openModal(title, price, oldPrice, desc) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalPrice').innerText = price;
@@ -447,6 +473,57 @@
                 closeModal();
             }
         });
+
+        // Theme Switcher Function
+        function setTheme(primary, light, dark) {
+            document.documentElement.style.setProperty('--gold-primary', primary);
+            document.documentElement.style.setProperty('--gold-light', light);
+            document.documentElement.style.setProperty('--gold-dark', dark);
+        }
+
+        // Snow Overlay Effect
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = Array.from({ length: 45 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 2.5 + 1,
+            d: Math.random() * 1 + 0.5,
+            opacity: Math.random() * 0.5 + 0.3
+        }));
+
+        function drawSnow() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.beginPath();
+            particles.forEach(p => {
+                ctx.moveTo(p.x, p.y);
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            });
+            ctx.fill();
+            updateSnow();
+        }
+
+        function updateSnow() {
+            particles.forEach(p => {
+                p.y += p.d;
+                p.x += Math.sin(p.y * 0.05) * 0.4;
+                if (p.y > height) {
+                    p.y = -5;
+                    p.x = Math.random() * width;
+                }
+            });
+        }
+
+        setInterval(drawSnow, 33);
     </script>
 </body>
 </html>
